@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WS_TEST</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var ws = new WebSocket("ws://127.0.0.1:2346");
+        ws.onopen = function () {
+            alert('连接成功');
+            ws.send('tom eee');
+            alert("给服务端发送一个字符串：tom");
+        };
+        ws.onmessage = function (e) {
+            alert("收到服务器的信息：" + e.data);
+        };
+    };
+</script>
+</html>
